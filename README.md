@@ -4,7 +4,7 @@ Here is a description of the preprocessing steps for ABIDEI data (http://fcon_10
 These scripts are used to preprocess ABIDEI-KKI, ABIDEI-NYU ABIDEII-KKI, ABIDEII-NYU_1, ABIDEII-NYU_2.
 
 ## Step 1: Prepare data
-All the raw data to be preprocessed are stored under `/data/home4/risk_share/ImproveFConnASD/ABIDE`
+All the raw data to be preprocessed are stored under `/data/home4/risk_share/ImproveFConnASD/ABIDE`. Seperate folders were created to store output preprocessed results under `/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed`. 
 
 
 
