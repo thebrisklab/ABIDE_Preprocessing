@@ -48,6 +48,35 @@ fmriprep-docker $bids_root_dir /data/home4/risk_share/ImproveFConnASD/ABIDE/fmri
 --fs-license-file /data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/derivatives/license.txt \
 ```
 
+### Submit scripts to CSIC cluster
+
+Open `submit.sh`, change `myscratch` to the target scratch folder:
+```
+myscratch=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/scratch
+```
+
+Then inside each study folder in the command line, type    
+```
+chmod u+x submit.sh
+```
+to change the root permission of the submit script.    
+
+Then type
+```
+./submit.sh
+```
+to submit parallel jobs.
+
+The errors and running information will be stored in `/scratch/err` and `/scratch/out` folder. You can use `qstat` to check running status, and `qdel` to delete running jobs.
+
+## Step 3: Scrubing?
+
+
+
+## Step 4: Nuissance regression
+
+
+
 
 
 
