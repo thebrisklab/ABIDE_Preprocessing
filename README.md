@@ -15,7 +15,7 @@ Create the following three folders inside each study folders, e.g. `/data/home4/
 Get free surfer license and put the .txt file under `derivatives` folder.   
 
 Download and install Docker.   
-*Note*: csic cluster already have docker installed, but one needs to get permission to run docker on the cluster.
+**Note**: csic cluster already have docker installed, but one needs to get permission to run docker on the cluster.
 
 
 
