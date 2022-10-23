@@ -27,6 +27,24 @@ xxxxxxx
 
 Run the code `gen_subjList.R`. The goal is to get a `subjList.txt` file containing the subject numbers. Should change the path in the code accordingly. 
 
+### The code for fmriprep    
+
+`fmriprep_Subj.sh` is the scrpt to perform preprocessing using fmriprep software. For the full usage of fmriprep, please refer to https://fmriprep.org/en/stable/index.html. Should change the following codes accordingly:    
+
+- Change `bids_root_dir` to the target dataser dictionary.
+```
+bids_root_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/ABIDEII-KKI
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
