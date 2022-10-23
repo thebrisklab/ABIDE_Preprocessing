@@ -35,9 +35,18 @@ Run the code `gen_subjList.R`. The goal is to get a `subjList.txt` file containi
 ```
 bids_root_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/ABIDEII-KKI
 ```
-
-
-
+- Change `FS_LICENSE` to the path to the target license file.
+```
+export FS_LICENSE=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/derivatives/license.txt
+```
+- Change the path afer `$bids_root_dir` to the target output folder `derivatives`.
+```
+fmriprep-docker $bids_root_dir /data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/derivatives \
+```
+- Change `--fs-license-file` to the path to the target license file.
+```
+--fs-license-file /data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/derivatives/license.txt \
+```
 
 
 
