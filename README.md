@@ -17,6 +17,15 @@ Get free surfer license and put the .txt file under `derivatives` folder.
 Download and install Docker.   
 **Note**: csic cluster already have docker installed, but one needs to get permission to run docker on the cluster.
 
+## Step 2: Run scripts     
+Open the terminal and login to the CSIC server. Then login to a computing node by typing `qlogin`, or simply `ssh node3`. Navigate to the script folder.
+
+### Note: Remove the first two volumes in NYU preprocessing
+xxxxxxx
+
+### Get a list of all subject numbers in each study    
+
+Run the code `gen_subjList.R`. The goal is to get a `subjList.txt` file containing the subject numbers. Should change the path in the code accordingly. 
 
 
 
