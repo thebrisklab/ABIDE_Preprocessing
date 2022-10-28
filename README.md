@@ -26,7 +26,7 @@ Navigate to the subfolder `remove_volume` under the script folder inside ABIDEI-
 
 ### Get a list of all subject numbers in each study    
 
-Run the code `gen_subjList.R`. The goal is to get a `subjList.txt` file containing the subject numbers. Should change the path in the code accordingly. 
+Navigate to the script folder. Run the code `gen_subjList.R`. The goal is to get a `subjList.txt` file containing the subject numbers. Should change the path in the code accordingly. 
 
 ### The code for fmriprep    
 
