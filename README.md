@@ -7,7 +7,7 @@ These scripts are used to preprocess ABIDEI-KKI, ABIDEI-NYU ABIDEII-KKI, ABIDEII
 ## Step 1: Prepare data
 All the raw data to be preprocessed are stored under `/data/home4/risk_share/ImproveFConnASD/ABIDE`. They should be in BIDS data format. The BIDS format can be validated using https://bids-standard.github.io/bids-validator/. Seperate folders were created to store output preprocessed results under `/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed`. 
 
-Create the following three folders inside each study folders, e.g. `/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI`:     
+Create the following three folders inside each study folders, e.g. `/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEI-KKI`:     
 - `derivatives`: store ouput preprocessed files.     
 - `script`: store corresponding preprocessing scripts.     
 - `scratch`: store error message and output information when submitting to the CSIC cluster.     
@@ -21,7 +21,8 @@ Download and install Docker.
 Open the terminal and login to the CSIC server. Then login to a computing node by typing `qlogin`, or simply `ssh node3`. Navigate to the script folder.
 
 ### Note: Remove the first two volumes in NYU preprocessing
-xxxxxxx
+
+Navigate to the subfolder `remove_volume` under the script folder inside ABIDEI-NYU, ABIDEII-NYU_1 and ABIDEII-NYU_2 folder. `remove_volume.sh` is the scrpt to remove first two volumes in each NYU dataset using afnidir/3dcalc software. To run the analysis, for instance for ABIDEI-NYU, open submit_ABIDEI-NYU.sh, change myscratch to the target scratch folder, type `chmod u+x submit.sh` in the command line to change the root permission of the submit script, then type `./submit.sh` to submit parallel jobs.
 
 ### Get a list of all subject numbers in each study    
 
