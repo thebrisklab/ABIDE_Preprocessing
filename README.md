@@ -22,7 +22,7 @@ Download and install Docker.
 The`remove_volume` subfolder under the script folder inside ABIDEI-NYU, ABIDEII-NYU_1 and ABIDEII-NYU_2 folder contains code to remove the first two volumes in NYU studies. `remove_volume.sh` is the script to remove first two volumes in each NYU dataset using afnidir/3dcalc software. To run the analysis, for instance for ABIDEI-NYU, open submit_ABIDEI-NYU.sh, change myscratch to the target scratch folder, type `chmod u+x submit.sh` in the command line to change the root permission of the submit script, then type `./submit.sh` to submit parallel jobs.
 
 ## Step 2: Run fmreprep scripts     
-Open the terminal and login to the CSIC server. Then login to a computing node by typing `qlogin`, or simply `ssh node3`. Navigate to the script folder.
+Open the terminal and login to the CSIC server. Then login to a computing node by typing `qlogin`, or simply `ssh node3`. Navigate to the script folder. Here we use ABIDEI-KKI as an example. 
 
 ### Get a list of all subject numbers in each study    
 
@@ -30,30 +30,30 @@ Navigate to the script folder. Run the code `gen_subjList.R`. The goal is to get
 
 ### The code for fmriprep    
 
-`fmriprep_Subj.sh` is the scrpt to perform preprocessing using fmriprep software. For the full usage of fmriprep, please refer to https://fmriprep.org/en/stable/index.html. Should change the following codes accordingly:    
+`fmriprep_Subj.sh` is the script to perform preprocessing using fmriprep software. For the full usage of fmriprep, please refer to https://fmriprep.org/en/stable/index.html. Should change the following codes accordingly:    
 
 - Change `bids_root_dir` to the target dataser dictionary.
 ```
-bids_root_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/ABIDEII-KKI
+bids_root_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/ABIDEI-KKI
 ```
 - Change `FS_LICENSE` to the path to the target license file.
 ```
-export FS_LICENSE=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/derivatives/license.txt
+export FS_LICENSE=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEI-KKI/derivatives/license.txt
 ```
 - Change the path afer `$bids_root_dir` to the target output folder `derivatives`.
 ```
-fmriprep-docker $bids_root_dir /data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/derivatives \
+fmriprep-docker $bids_root_dir /data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEI-KKI/derivatives \
 ```
 - Change `--fs-license-file` to the path to the target license file.
 ```
---fs-license-file /data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/derivatives/license.txt \
+--fs-license-file /data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEI-KKI/derivatives/license.txt \
 ```
 
 ### Submit scripts to CSIC cluster
 
 Open `submit.sh`, change `myscratch` to the target scratch folder:
 ```
-myscratch=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEII-KKI/scratch
+myscratch=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEI-KKI/scratch
 ```
 
 Then inside each study folder in the command line, type    
@@ -70,11 +70,8 @@ to submit parallel jobs.
 
 The errors and running information will be stored in `/scratch/err` and `/scratch/out` folder. You can use `qstat` to check running status, and `qdel` to delete running jobs.
 
-## Step 3: Scrubing?
 
-
-
-## Step 4: Nuissance regression
+## Step 3: Nuissance regression
 
 ### 1. Volume-based
 
