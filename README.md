@@ -73,13 +73,13 @@ The errors and running information will be stored in `/scratch/err` and `/scratc
 
 ## Step 3: Nuissance regression
 
-### 1. Volume-based
-
 Run `create_folders.R` to create three new folders: 
 - `nuisance`: Store nuisance regressors/
 - `volume_based`: Store volume-based nuisance regression results.
 - `cifti_based`: Store cifti-based nuisance regression results.
 Should modify the input/output path code accordingly.  
+
+### 1. volume-based
 
 Run `gen_subjList.R` to generate a list of subject numbers and corresponding preprocessed `.nii.gz` file.
 Should get a `.txt` file, e.g. `subjList_ABIDEII.txt` with two columns. The first column contains the subject number, while the second column contains the name of preprocessed `.nii.gz` file. 
@@ -119,9 +119,46 @@ to submit parallel jobs.
 
 The errors and running information will be stored in `/scratch/err` and `/scratch/out` folder. You can use `qstat` to check running status, and `qdel` to delete running jobs.
 
-
 ### 2. cifti-based
 
+Inside cifti_based folder, there are three subfolders:
+
+- cifti_to_nifti: convert cifti file generated from fmriprep to fake nifti file
+- code: run nuisance regression on nifti files using afni 3dTproject
+- nifti_to_cifti: convert nifti file generated from nuisance regression back to cifti file
+
+In `cifti_to_nifti` folder, take ABIDEI-KKI for example, navigate to `KKI` subfolder, run `gen_subjList_cifti.R` to generate a list of subject ids and corresponding preprocessed cifti file obtained from fmriprep.
+
+Modify the script `Subj_36p_9p_ABIDEI.sh` as follows:
+- `func_dir`: the path to the `derivatives` folder containing the preprocessed data from fmriprep.
+- `nuisance_dir`: the path to the `nuisance` folder.
+- `out_dir`: the path to the output folder.
+Example:
+```
+func_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEI-KKI/derivatives
+nuisance_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p/ABIDEI-KKI/${subj}/nuisance
+out_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p/ABIDEI-KKI/${subj}/volume_based
+```
+
+Open submitting scripts, e.g. `submit_ABIDEI.sh`, change `myscratch` to the target scratch folder:
+```
+myscratch=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p/scratch/volume/ABIDEI-KKI
+```
+
+Open the terminal and login to the CSIC server. Then login to a computing node by typing `qlogin`, or simply `ssh node3`. Navigate to the script folder.
+Then inside each study folder in the command line, type    
+```
+chmod u+x submit_ABIDEI.sh
+```
+to change the root permission of the submit script.    
+
+Then type
+```
+./submit_ABIDEI.sh
+```
+to submit parallel jobs.
+
+The errors and running information will be stored in `/scratch/err` and `/scratch/out` folder. You can use `qstat` to check running status, and `qdel` to delete running jobs.
 
 
 
