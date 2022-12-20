@@ -71,7 +71,7 @@ to submit parallel jobs.
 The errors and running information will be stored in `/scratch/err` and `/scratch/out` folder. You can use `qstat` to check running status, and `qdel` to delete running jobs.
 
 
-## Step 3: Nuissance regression
+## Step 3: Nuisance regression
 
 Run `create_folders.R` to create three new folders: 
 - `nuisance`: Store nuisance regressors/
