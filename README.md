@@ -21,7 +21,7 @@ Download and install Docker.
 
 The`remove_volume` subfolder under the script folder inside ABIDEI-NYU, ABIDEII-NYU_1 and ABIDEII-NYU_2 folder contains code to remove the first two volumes in NYU studies. `remove_volume.sh` is the script to remove first two volumes in each NYU dataset using afnidir/3dcalc software. To run the analysis, for instance for ABIDEI-NYU, open submit_ABIDEI-NYU.sh, change myscratch to the target scratch folder, type `chmod u+x submit.sh` in the command line to change the root permission of the submit script, then type `./submit.sh` to submit parallel jobs.
 
-## Step 2: Run fmreprep scripts     
+## Step 2: Run fmriprep scripts     
 Open the terminal and login to the CSIC server. Then login to a computing node by typing `qlogin`, or simply `ssh node3`. Navigate to the script folder. Here we use ABIDEI-KKI as an example. 
 
 ### Get a list of all subject numbers in each study    
