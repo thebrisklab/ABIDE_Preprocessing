@@ -32,7 +32,7 @@ Navigate to the script folder. Run the code `gen_subjList.R`. The goal is to get
 
 `fmriprep_Subj.sh` is the script to perform preprocessing using fmriprep software. For the full usage of fmriprep, please refer to https://fmriprep.org/en/stable/index.html. Should change the following codes accordingly:    
 
-- Change `bids_root_dir` to the target dataser dictionary.
+- Change `bids_root_dir` to the target dataset dictionary.
 ```
 bids_root_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/ABIDEI-KKI
 ```
@@ -73,11 +73,15 @@ The errors and running information will be stored in `/scratch/err` and `/scratc
 
 ## Step 3: Nuisance regression
 
-Run `create_folders.R` to create three new folders: 
-- `nuisance`: Store nuisance regressors/
-- `volume_based`: Store volume-based nuisance regression results.
-- `cifti_based`: Store cifti-based nuisance regression results.
-Should modify the input/output path code accordingly.  
+The nuisance regression code and results can be found at /home/jran2/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p. The folder is named 36p to indicate that it involves regression on 36 parameters. It's worth noting that in addition to regression on 36 parameters, other regressions are also performed and can be found in the accompanying description. Inside the folder, a script folder is created to store the scripts, and separate folders are created for each site to store the output preprocessed results with the site's name.
+
+To set up the necessary folders, go to the script folder and run `create_folders.R`. This will create three new folders under each site folder:
+
+- `nuisance`: This folder will store the nuisance regressors.
+- `volume_based`: This folder will store the results of volume-based nuisance regression.
+- `cifti_based`: This folder will store the results of cifti-based nuisance regression.
+
+Make sure to update the input/output path code accordingly to reflect these folder names and locations.
 
 ### 1. volume-based
 
