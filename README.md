@@ -124,17 +124,15 @@ The errors and running information will be stored in `/scratch/err` and `/scratc
 
 Inside the `cifti_based` folder under the `script` folder, there are three subfolders:
 
-- cifti_to_nifti: convert cifti file generated from fmriprep to fake nifti file
-- code: run nuisance regression on nifti files using afni 3dTproject
-- nifti_to_cifti: convert nifti file generated from nuisance regression back to cifti file
+- `cifti_to_nifti`: convert cifti file generated from fmriprep to fake nifti file
+- `code`: run nuisance regression on nifti files using afni 3dTproject
+- `nifti_to_cifti`: convert nifti file generated from nuisance regression back to cifti file
 
 In the `cifti_to_nifti` folder, taking ABIDEI-KKI as an example, navigate to the `KKI` subfolder and run `gen_subjList_cifti.R` to generate a list of subject IDs and corresponding preprocessed cifti files obtained from fmriprep. The `trans_ABIDEI.sh` script performs the transformation for each subject, and the `submit_ABIDEI_cifti.sh` script submits the job in parallel.
 
 After converting cifti files to fake nifti files, we run nuisance regression using the script from the code file. To do this, first run `gen_subjList.R` to generate a list of subject IDs and corresponding preprocessed cifti to nifti files. Then, the `Subj_36p_ABIDEI.sh` script performs the nuisance regression based on 9 parameters, 36 parameters, and 36 parameters with spike regression for each subject. Finally, the `submit_ABIDEI.sh` script submits the job in parallel.
 
-
-
-
+After performing nuisance regression, the results will be generated in a nifti file format. To convert them back to cifti format, we can use scripts from the `nifti_to_cifti` folder. First, `gen_fake_template.R` generates a fake cifti template based on the original cifti file. Then, the `trans_ABIDEI.sh` script performs the transformation for each subject, and finally, the `submit_ABIDEI_nifti.sh` script submits the job in parallel.
 
 
 
