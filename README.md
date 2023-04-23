@@ -85,24 +85,21 @@ Make sure to update the input/output path code accordingly to reflect these fold
 
 ### 1. volume-based
 
-Run `gen_subjList.R` to generate a list of subject numbers and corresponding preprocessed `.nii.gz` file.
-Should get a `.txt` file, e.g. `subjList_ABIDEII.txt` with two columns. The first column contains the subject number, while the second column contains the name of preprocessed `.nii.gz` file. 
-Should modify the input/output path code accordingly.  
+Run `gen_subjList.R` to generate a list of subject numbers and corresponding preprocessed `.nii.gz` files. This will create a `.txt` file, such as `subjList_ABIDEI.txt`, with two columns. The first column will contain the subject numbers, while the second column will contain the names of the preprocessed `.nii.gz` files. 
 
-Run `create_1D.R` to create several `.1D` files containing the nuisance regressors. Should get 36 `.1D` files under `nuisance` folder, which will be used for 36p/9p nuisance regression.
-Should modify the input/output path code accordingly.  
+Run `create_1D.R` to create several `.1D` files containing the nuisance regressors. This will generate 36 `.1D` files under the nuisance folder, which will be used for 36p/9p nuisance regression. 
 
-Modify the script `Subj_36p_9p_ABIDEI.sh` as follows:
+Then, to perform volume-based regression. First modify the script `Subj_36p_9p_ABIDEI.sh` as follows:
 - `func_dir`: the path to the `derivatives` folder containing the preprocessed data from fmriprep.
 - `nuisance_dir`: the path to the `nuisance` folder.
 - `out_dir`: the path to the output folder.
+
 Example:
 ```
 func_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/ABIDEI-KKI/derivatives
 nuisance_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p/ABIDEI-KKI/${subj}/nuisance
 out_dir=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p/ABIDEI-KKI/${subj}/volume_based
 ```
-
 Open submitting scripts, e.g. `submit_ABIDEI.sh`, change `myscratch` to the target scratch folder:
 ```
 myscratch=/data/home4/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p/scratch/volume/ABIDEI-KKI
