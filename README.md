@@ -73,7 +73,7 @@ The errors and running information will be stored in `/scratch/err` and `/scratc
 
 ## Step 3: Nuisance regression
 
-The nuisance regression code and results can be found at /home/jran2/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p. The folder is named 36p to indicate that it involves regression on 36 parameters. It's worth noting that in addition to regression on 36 parameters, other regressions are also performed and can be found in the accompanying description. Inside the folder, a script folder is created to store the scripts, and separate folders are created for each site to store the output preprocessed results with the site's name.
+The nuisance regression code and results can be found at `/home/jran2/risk_share/ImproveFConnASD/ABIDE/fmriprep_preprocessed/36p`. The folder is named `36p` to indicate that it involves regression on 36 parameters. It's worth noting that in addition to regression on 36 parameters, other regressions are also performed and can be found in the accompanying description. Inside the folder, a script folder is created to store the scripts, and separate folders are created for each site to store the output preprocessed results with the site's name.
 
 To set up the necessary folders, go to the script folder and run `create_folders.R`. This will create three new folders under each site folder:
 
