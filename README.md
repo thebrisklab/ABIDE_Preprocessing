@@ -135,6 +135,20 @@ After converting cifti files to fake nifti files, we run nuisance regression usi
 After performing nuisance regression, the results will be generated in a nifti file format. To convert them back to cifti format, we can use scripts from the `nifti_to_cifti` folder. First, `gen_fake_template.R` generates a fake cifti template based on the original cifti file. Then, the `trans_ABIDEI.sh` script performs the transformation for each subject, and finally, the `submit_ABIDEI_nifti.sh` script submits the job in parallel.
 
 
+## Step 4: Behavioral and demographic variable preprocessing
+
+The project aggregates the phenotype information from ABIDEI and ABIDEII.
+
+The code requires csv files with phenotype information downloaded from ABIDE
+(see code for detailed urls): 
+	- `ABIDEII_Composite_Phenotypic.csv`
+	- `Phenotypic_V1_0b_preprocessed1.csv`
+	- `ABIDE-II_KKI_1_AdditionalScanInfo.csv`
+
+The code also requires a few files that we created:
+	`data/Delta_Outcome.Rdata`, which is the output of `scrubbing_ABIDE.R`. Delta_Outcome.Rdata contains the motion quality information (mean_FD, mean_RMSD, etc) and the inclusion indicator variables for Power and Ciric criteria. This was run on our cluster. 
+
+	`data/check_ABIDE_T1_v2.csv `, This is a file the we created by visually inspecting the output of fmriprep using the fmriprep html files. This file flags images in which the cortical segmentation was unsatisfactory, or in which some other aspect of the image quality was deemed unacceptable. 
 
 
 
