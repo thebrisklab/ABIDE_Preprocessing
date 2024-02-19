@@ -141,15 +141,14 @@ The project aggregates the phenotype information from ABIDEI and ABIDEII.
 
 The code requires csv files with phenotype information downloaded from ABIDE
 (see code for detailed urls): 
-	- `ABIDEII_Composite_Phenotypic.csv`
-	- `Phenotypic_V1_0b_preprocessed1.csv`
-	- `ABIDE-II_KKI_1_AdditionalScanInfo.csv`
+- `ABIDEII_Composite_Phenotypic.csv` Download ABIDE II Composite Phenotypic File from https://fcon_1000.projects.nitrc.org/indi/abide/abide_II.html
+- `Phenotypic_V1_0b_preprocessed1.csv` This is ABIDE I phentype info. The preprocessed version contains a couple motion summaries we can use to audit our pipeline. (https://s3.amazonaws.com/fcp-indi/data/Projects/ABIDE_Initiative/Phenotypic_V1_0b_preprocessed1.csv)
+- `ABIDE-II_KKI_1_AdditionalScanInfo.csv`: Contains receiving coil information used in data harmonization. This dataset can be downloaded at (https://fcon_1000.projects.nitrc.org/indi/abide/scan_params/ABIDEII-KKI_1/ABIDE-II_KKI_1_AdditionalScanInfo.csv).
 
-The code also requires a few files that we created:
-	`data/Delta_Outcome.Rdata`, which is the output of `scrubbing_ABIDE.R`. Delta_Outcome.Rdata contains the motion quality information (mean_FD, mean_RMSD, etc) and the inclusion indicator variables for Power and Ciric criteria. This was run on our cluster. 
+Download these files from the above urls, then place them in the folder `data/`.
 
-	`data/check_ABIDE_T1_v2.csv `, This is a file the we created by visually inspecting the output of fmriprep using the fmriprep html files. This file flags images in which the cortical segmentation was unsatisfactory, or in which some other aspect of the image quality was deemed unacceptable. 
+The code also requires a few files that we created
 
-
-
+- `data/Delta_Outcome.Rdata`: Contains the motion quality information (mean_FD, mean_RMSD, etc) created by fmriprep and the inclusion indicator variables for Power and Ciric criteria. This was run on our cluster. Output of `code/scrubbing_ABIDE.R`. 
+- `data/check_ABIDE_T1_v2.csv` This is a file the we created by visually inspecting the output of fmriprep using the fmriprep html files. This file flags images in which the cortical segmentation was unsatisfactory, or in which some other aspect of the image quality was deemed unacceptable. 
 
