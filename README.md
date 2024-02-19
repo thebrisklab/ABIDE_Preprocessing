@@ -151,6 +151,6 @@ Download these files from the above urls, then place them in the folder `data/`.
 
 The code also requires a few files that we created
 
-- `data/Delta_Outcome.Rdata`: Contains the motion quality information (mean_FD, mean_RMSD, etc) created by fmriprep and the inclusion indicator variables for Power and Ciric criteria. This was run on our cluster. Output of `code/scrubbing_ABIDE.R`. 
+- `data/Delta_Outcome.Rdata`: Contains the motion quality information (mean_FD, mean_RMSD, etc) created by fmriprep and the inclusion indicator variables for Power and Ciric criteria. This was run on our cluster. Output of `code/scrubbing/scrubbing_ABIDE.R`. 
 - `data/check_ABIDE_T1_v2.csv` This is a file the we created by visually inspecting the output of fmriprep using the fmriprep html files. This file flags images in which the cortical segmentation was unsatisfactory, or in which some other aspect of the image quality was deemed unacceptable. 
 
