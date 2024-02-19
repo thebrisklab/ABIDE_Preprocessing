@@ -139,7 +139,9 @@ After performing nuisance regression, the results will be generated in a nifti f
 
 The project aggregates the phenotype information from ABIDEI and ABIDEII.
 
-The code requires csv files with phenotype information downloaded from ABIDE
+The main program is `code/phenotype/ABIDE_Phenotype_Preprocessing.R`.
+
+It requires csv files with phenotype information downloaded from ABIDE
 (see code for detailed urls): 
 - `ABIDEII_Composite_Phenotypic.csv` Download ABIDE II Composite Phenotypic File from https://fcon_1000.projects.nitrc.org/indi/abide/abide_II.html
 - `Phenotypic_V1_0b_preprocessed1.csv` This is ABIDE I phentype info. The preprocessed version contains a couple motion summaries we can use to audit our pipeline. (https://s3.amazonaws.com/fcp-indi/data/Projects/ABIDE_Initiative/Phenotypic_V1_0b_preprocessed1.csv)
